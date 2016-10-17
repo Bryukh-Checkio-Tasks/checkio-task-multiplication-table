@@ -1,0 +1,375 @@
+<style type="text/css">
+    .story .shadow {
+        float: left;
+        /*padding: 10px;*/
+        margin: 10px;
+        border: black;
+        /*box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1);*/
+        /*-moz-box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1);*/
+        /*-webkit-box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1);*/
+    }
+
+    .t-example {
+        text-align: center;
+        margin: 0 auto 0 auto;
+    }
+
+    .t-example tr:first-child td{
+        border-bottom: solid #294270 2px;
+    }
+
+    .t-example tr:last-child td {
+        border-top: solid #294270 2px;
+    }
+
+    .t-example td .operation {
+        border-collapse: collapse;
+        margin: 5px;
+    }
+
+    .t-example td {
+        color: #294270;
+    }
+
+    .t-example td .operation td {
+        border: solid #294270 1px;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 2px;
+        color: #294270;
+    }
+
+    .t-example td .operation tr:first-child td {
+        border: none;
+    }
+
+    .t-example td .operation tr:last-child td,
+    .t-example td .operation tr td.td-sum
+    {
+        border-bottom: none;
+    }
+
+    .t-example td .operation tr td:first-child {
+        border-left: none;
+    }
+
+    .t-example td .operation tr td:last-child {
+        border-right: none;
+    }
+
+    .td-header {
+        font-size: 20px;
+    }
+
+    .td-result {
+        font-size: 16px;
+    }
+</style>
+
+<div class="story" style="margin-bottom: 0">
+    <img class="shadow" src="{{MEDIA}}alice-sepia.png" width="320px"/>
+
+    <p style="padding-top: 20px;">
+        Alice nahm den Fächer und die Handschuhe auf, und da der Gang sehr heiß war, fächelte
+        sie sich, während sie so zu sich selbst sprach: »Wunderbar! – wie seltsam heute Alles ist!
+        Und gestern war es ganz wie gewöhnlich. Ob ich wohl in der Nacht umgewechselt worden bin?
+        Laß mal sehen: war ich dieselbe, als ich heute früh aufstand? Es kommt mir fast vor,
+        als hätte ich wie eine Veränderung in mir gefühlt. Aber wenn ich nicht dieselbe bin,
+        dann ist die Frage: wer in aller Welt bin ich? Ja, das ist das Räthsel!« So ging sie
+        in Gedanken alle Kinder ihres Alters durch, die sie kannte, um zu sehen, ob sie in
+        eins davon verwandelt wäre.
+    </p>
+
+    <p>
+        »Ich bin sicherlich nicht Ida,« sagte sie, »denn die trägt lange Locken, und mein
+        Haar ist gar nicht lockig; und bestimmt kann ich nicht Clara sein, denn ich weiß
+        eine ganze Menge, und sie, oh! sie weiß so sehr wenig! Außerdem, sie ist sie selbst,
+        und ich bin ich, und, o wie confus es Alles ist! Ich will versuchen, ob ich noch Alles
+        weiß, was ich sonst wußte. Laß sehen: vier mal fünf ist zwölf, und vier mal sechs
+        ist dreizehn, und vier mal sieben ist – o weh! auf die Art komme ich nie bis zwanzig!
+        Aber, das Einmaleins hat nicht so viel zu sagen; ...
+    </p>
+
+    <p style="float: right">
+        "Alice's Abenteuer im Wunderland" von Lewis Carroll<br>
+        Aus dem Englischen von Antonie Zimmermann, 1869
+    </p>
+
+    <p style="clear: both;"></p>
+
+</div>
+
+<p>
+    Nach der Lektüre von "Alice im Wunderland " haben sich unsere Roboter entschieden
+    ihr eigenes Einmaleins zu erstellen.
+
+    Stephan hätte diese Mission leiten sollen. Aber das war keine so gute Idee, denn er hat
+    vergessen wie man multipliziert und erfand dafür eine eigene Methode.<br>
+    Und die ist eher seltsam, wenn wir ehrlich sind.
+</p>
+
+<p>
+    In Stephans Version der Multiplikation werden Zahlen zunächst in ihre binäre Darstellung
+    ohne führende Nullen konvertiert. Dann wird die erste Zahl vertikal geschrieben
+    (von oben nach unten) und die Zweite horizontal (von links nach rechts).
+    Damit beschriften wir je eine Wertetabelle für die binären Operationen AND, OR und XOR,
+    sodass wir am Ende drei Tabellen haben.
+    Die resultierenden Zeilen in den Wertetabellen werden dann in eine Dezimalzahl konvertiert
+    und zu einer Summe zusammengefasst.
+    Zum Schluss ergibt die Addition der Summen aus den drei Wertetabellen das Ergebnis.<br>
+</p>
+
+<p>
+    Schauen wir uns ein paar Beispiele an:
+</p>
+
+<table class="t-example">
+    <tr>
+        <td colspan="3" class="td-header">4 x 6 =</td>
+    </tr>
+    <tr>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">AND</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>0</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>0</td><td>6</td><td rowspan="3" class="td-sum">6</td>
+
+                </tr>
+                <tr>
+                    <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">OR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>0</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>1</td><td>7</td>
+                    <td rowspan="3" class="td-sum">19</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>0</td><td>6</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>0</td><td>6</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">XOR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>0</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>0</td><td>1</td><td>1</td>
+                    <td rowspan="3" class="td-sum">13</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>0</td><td>6</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>0</td><td>6</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="td-result" colspan="3">
+            6 + 19 + 13 = <strong>38</strong>
+        </td>
+    </tr>
+</table>
+
+<p> </p>
+
+<table class="t-example">
+    <tr>
+        <td colspan="3" class="td-header">2 x 7 =</td>
+    </tr>
+    <tr>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">AND</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>1</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>1</td><td>7</td><td rowspan="3" class="td-sum">7</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">OR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>1</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>1</td><td>7</td>
+                    <td rowspan="3" class="td-sum">14</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>1</td><td>7</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">XOR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>1</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                    <td rowspan="3" class="td-sum">7</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>1</td><td>7</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="td-result" colspan="3">
+            7 + 14 + 7 = <strong>28</strong>
+        </td>
+    </tr>
+</table>
+
+<p> </p>
+
+<table class="t-example">
+    <tr>
+        <td colspan="3" class="td-header">7 x 2 =</td>
+    </tr>
+    <tr>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="5">AND</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>0</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>0</td><td>2</td><td rowspan="3" class="td-sum">6</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>0</td><td>2</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>0</td><td>2</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="5">OR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>0</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>3</td>
+                    <td rowspan="3" class="td-sum">9</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>3</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>3</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="5">XOR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>0</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>1</td><td>1</td>
+                    <td rowspan="3" class="td-sum">3</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>1</td><td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>1</td><td>1</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="td-result" colspan="3">
+            6 + 9 + 3 = <strong>18</strong>
+        </td>
+    </tr>
+</table>
+
+<p>
+    Du sollst Stephan helfen eine Funktion zu schreiben, die diese Art von "Multiplikation"
+    ausführen kann.
+    Gegeben werden zwei positive Ganzzahlen (n&nbsp;>&nbsp;0).<br>
+    <strong>Achte auf die Reihenfolge der Argumente.</strong>
+</p>
+
+<p>
+    <strong>Eingabe: </strong> Zwei Argumente als Ganzzahlen.
+</p>
+
+<p>
+    <strong>Ausgabe: </strong> Das Ergebnis der "Stephan-Multiplikation", als ganze Zahl.
+</p>
+
+<div class="for_info_only">
+    <p>
+        <strong>Beispiele:</strong>
+    </p>
+    <pre class="brush: python">
+        checkio(4, 6) == 38
+        checkio(2, 7) == 28
+        checkio(7, 2) == 18
+    </pre>
+</div>
+
+<p class="for_info_only">
+    <strong>Wozu das gut ist:</strong><br>
+    In dieser Aufgabe spielen wir mit logischen binären Operationen - der Grundlage der
+    Informatik.<br>
+    Vielleicht findest Du dafür Verwendung in der Kryptografie?
+</p>
+
+<p>
+    <strong>Bedingungen:</strong><br>
+    0 < x < 100<br>
+    0 < y < 100
+</p>
